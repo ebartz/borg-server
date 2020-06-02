@@ -1,9 +1,8 @@
 FROM alpine:latest
-MAINTAINER b3vis
+MAINTAINER ebartzsva
 #Install Borg & SSH
 RUN apk add openssh sshfs borgbackup supervisor --no-cache
-RUN adduser -D -u 1000 borg && \
-    mkdir /backups && \
+RUN adduser -D -u 1000 borgbackup && \
     chown borg.borg /backups && \
     sed -i \
         -e 's/^#PasswordAuthentication yes$/PasswordAuthentication no/g' \
